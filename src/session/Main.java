@@ -1,31 +1,34 @@
-package hello_world;
+package session;
 
-import java.sql.Date;
-
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class HelloWorldMain {
+import java.sql.Date;
+
+public class Main {
 	public static void main(String[] args) {
-		// 1. SessionFactory Object
 		Configuration configuration = new Configuration().configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();		
 
-		// 2. Session Object
 		Session session = sessionFactory.openSession();
-		// 3.Turn on transaction
 		Transaction transction = session.beginTransaction();
-		// 4. Save
-		News news = new News("Java","BH5",new Date(new java.util.Date().getTime()));
-		news.setId(888);
-		session.save(news);
-		//5.Hand over transaction
+
+
+		News news =session.get(News.class, 10);
+		System.out.println(news);
+
+		News news2 =session.get(News.class, 10);
+		System.out.println(news2);
+		System.out.println(news.equals(news2));
+
+
 		transction.commit();
-		//6. Close session
+
+
 		session.close();
-		//7. Close sessionFactory
 		sessionFactory.close();
 	}
 }

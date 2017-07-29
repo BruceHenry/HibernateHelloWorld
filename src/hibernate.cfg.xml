@@ -19,8 +19,11 @@
 		<property name="format_sql">true</property>
 		
 		<property name="hbm2ddl.auto">update</property>
+
+		<property name="connection.isolation">2</property>
 		
 		<mapping resource="hello_world/News.hbm.xml"/>
+		<mapping resource="session/News.hbm.xml"/>
 	</session-factory>	
 	
 </hibernate-configuration>
