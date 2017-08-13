@@ -16,13 +16,13 @@ public class HelloWorldMain {
 		// 2. Session Object
 		Session session = sessionFactory.openSession();
 		// 3.Turn on transaction
-		Transaction transction = session.beginTransaction();
+		Transaction transaction = session.beginTransaction();
 		// 4. Save
-		News news = new News("Java","BH5",new Date(new java.util.Date().getTime()));
+		News news = new News("Java","BH2",new Date(new java.util.Date().getTime()));
 		news.setId(888);
 		session.save(news);
 		//5.Hand over transaction
-		transction.commit();
+		transaction.commit();
 		//6. Close session
 		session.close();
 		//7. Close sessionFactory

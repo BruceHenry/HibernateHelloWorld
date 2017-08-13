@@ -21,7 +21,20 @@
 		<property name="hbm2ddl.auto">update</property>
 
 		<property name="connection.isolation">2</property>
-		
+
+		<property name="use_identifier_rollback">true</property>
+
+		<!--c3p0-->
+		<property name="c3p0.max_size">10</property>
+		<property name="c3p0.min_size">5</property>
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.timeout">2000</property>
+		<property name="c3p0.idle_test_period">2000</property>
+		<property name="c3p0.max_statements">10</property>
+
+		<property name="hibernate.jdbc.fetch_size">100</property>
+		<property name="hibernate.jdbc.batch_size">30</property>
+
 		<mapping resource="hello_world/News.hbm.xml"/>
 		<mapping resource="session/News.hbm.xml"/>
 	</session-factory>	
