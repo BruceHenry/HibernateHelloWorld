@@ -17,5 +17,9 @@
         <property name="date" type="java.sql.Date">
             <column name="DATE" />
         </property>
+
+        <property name="image">
+            <column name="image" sql-type="mediumblob"></column>
+        </property>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,6 @@
 package session;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 public class News {
@@ -7,6 +8,7 @@ public class News {
 	private String title;
 	private String author;
 	private Date date;
+	private Blob image;
 	public Integer getId() {
 		return id;
 	}
@@ -31,6 +33,8 @@ public class News {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public Blob getImage(){return image;}
+	public void setImage(Blob image){this.image = image;}
 	
 	public News(String title, String author, Date date) {
 		super();
@@ -44,7 +48,7 @@ public class News {
 	}
 	@Override
 	public String toString() {
-		return "News [id=" + id + ", title=" + title + ", author=" + author + ", date=" + date + "]";
+		return "News [id=" + id + ", title=" + title + ", author=" + author + ", date=" + date +"Image:"+image+ "]";
 	}
 	
 	
