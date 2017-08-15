@@ -43,6 +43,12 @@
 
 		<mapping resource="one_to_many/Customer.hbm.xml"/>
 		<mapping resource="one_to_many/MyOrder.hbm.xml"/>
+
+		<mapping resource="one_to_one/Department.hbm.xml"/>
+		<mapping resource="one_to_one/Manager.hbm.xml"/>
+
+		<mapping resource="one_to_one/Department2.hbm.xml"/>
+		<mapping resource="one_to_one/Manager2.hbm.xml"/>
 	</session-factory>
 	
 </hibernate-configuration>
