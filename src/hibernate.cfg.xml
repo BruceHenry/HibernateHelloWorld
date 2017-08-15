@@ -49,6 +49,11 @@
 
 		<mapping resource="one_to_one/Department2.hbm.xml"/>
 		<mapping resource="one_to_one/Manager2.hbm.xml"/>
+
+		<mapping resource="many_to_many/Movie.hbm.xml"/>
+		<mapping resource="many_to_many/Actor.hbm.xml"/>
+		<mapping resource="many_to_many/Movie2.hbm.xml"/>
+		<mapping resource="many_to_many/Actor2.hbm.xml"/>
 	</session-factory>
 	
 </hibernate-configuration>
