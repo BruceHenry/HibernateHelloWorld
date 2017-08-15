@@ -38,8 +38,11 @@
 		<mapping resource="hello_world/News.hbm.xml"/>
 		<mapping resource="session/News.hbm.xml"/>
 
-		<mapping resource="many_to_one/Customer.hbm.xml"/>
 		<mapping resource="many_to_one/MyOrder.hbm.xml"/>
+		<mapping resource="many_to_one/Customer.hbm.xml"/>
+
+		<mapping resource="one_to_many/Customer.hbm.xml"/>
+		<mapping resource="one_to_many/MyOrder.hbm.xml"/>
 	</session-factory>
 	
 </hibernate-configuration>

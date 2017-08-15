@@ -1,4 +1,4 @@
-package many_to_one;
+package one_to_many;
 
 public class MyOrder {
     private Integer order_ID;

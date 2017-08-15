@@ -1,11 +1,9 @@
-package many_to_one;
+package one_to_many;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Order;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,13 +29,16 @@ public class Main {
     }
 
     @Test
-    public void manyToOne() {
+    public void OneToMany() {
         Customer customer = new Customer("AA");
         MyOrder order1 = new MyOrder("001");
         MyOrder order2 = new MyOrder("002");
 
         order1.setCustomer(customer);
         order2.setCustomer(customer);
+
+        customer.getOrders().add(order1);
+        customer.getOrders().add(order2);
 
         session.save(customer);
         session.save(order1);
@@ -47,21 +48,13 @@ public class Main {
     @Test
     public void get() {
         MyOrder order = session.get(MyOrder.class, 1);
-        System.out.println(order.getName());
-        System.out.println(order);
+        System.out.println(order.getCustomer().getOrders());
     }
 
     @Test
-    public void update() {
-        MyOrder order = session.get(MyOrder.class, 1);
-        order.getCustomer().setName("ABC");
+    public void multipleGet() {
+        Customer customer = session.get(Customer.class, 1);
+        System.out.println(customer);//One SELECT for Customer
+        System.out.println(customer.getOrders().getClass());//SELECT for order
     }
-
-    @Test
-    public void delete() {
-        //Error!!! Cascade!
-        MyOrder order = session.get(MyOrder.class, 2);
-        session.delete(order.getCustomer());
-    }
-
 }

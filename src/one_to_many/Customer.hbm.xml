@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 20, 2017 7:30:58 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="one_to_many">
+    <class name="Customer" table="CUSTOMER2">
+        <id name="customerID" type="java.lang.Integer">
+            <column name="CUSTOMER_ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"/>
+        </property>
+
+        <set name="orders" table="MYORDER" cascade="delete" order-by="NAME">
+            <key column="CUSTOMER_ID"></key>
+            <one-to-many class="MyOrder"/>
+        </set>
+    </class>
+</hibernate-mapping>
