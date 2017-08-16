@@ -54,6 +54,10 @@
 		<mapping resource="many_to_many/Actor.hbm.xml"/>
 		<mapping resource="many_to_many/Movie2.hbm.xml"/>
 		<mapping resource="many_to_many/Actor2.hbm.xml"/>
+
+		<mapping resource="inherent/Person.hbm.xml"/>
+		<mapping resource="inherent_2tables_joined/Person.hbm.xml"/>
+		<mapping resource="inherent_2tables_union/Person.hbm.xml"/>
 	</session-factory>
 	
 </hibernate-configuration>

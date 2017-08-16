@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 20, 2017 7:30:58 AM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="inherent_2tables_joined">
+    <class name="inherent_2tables_joined.Person" table="PERSON2">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID"/>
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME"/>
+        </property>
+
+        <joined-subclass name="inherent_2tables_joined.Student" table="STUDENT2">
+            <key column="ID"></key>
+            <property name="school" type="string" column="SCHOOL"/>
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>
