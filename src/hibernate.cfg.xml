@@ -35,12 +35,15 @@
         <property name="hibernate.jdbc.fetch_size">100</property>
         <property name="hibernate.jdbc.batch_size">30</property>
 
-
+        <!--use ehcache-->
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
         </property>
 
-
+        <!--Query use cache-->
         <property name="cache.use_query_cache">true</property>
+
+        <!--Session management-->
+        <property name="current_session_context_class">thread</property>
 
         <mapping resource="hello_world/News.hbm.xml"/>
         <mapping resource="session/News.hbm.xml"/>

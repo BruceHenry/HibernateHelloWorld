@@ -45,13 +45,11 @@ public class LeftJoin {
 
     @Test
     public void leftJoin() {
-        String hql = "FROM many_to_many.Movie m left join  m.actors";
-        Query query = session.createQuery(hql);
+        Query query = session.createQuery("FROM many_to_many.Movie m left join  m.actors");
         List list = query.list();
         System.out.println(list.get(0));//A Object array, [0]=Movie, [1]=Actor
 
-        hql = "SELECT m FROM many_to_many.Movie m left join  m.actors";
-        query = session.createQuery(hql);
+        query = session.createQuery("SELECT m FROM many_to_many.Movie m left join  m.actors");
         list = query.list();
         System.out.println(list.get(0));//A Movie object
 

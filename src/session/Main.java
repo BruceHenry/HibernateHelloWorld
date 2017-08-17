@@ -48,11 +48,11 @@ public class Main {
 		news.setImage(image);
 		session.save(news);
 
-		News news2=session.get(News.class,3);
-		System.out.println(news2);
-		Blob image2 = news2.getImage();
-		InputStream stream2 = image2.getBinaryStream();
-		System.out.println(stream2.available());
+//		News news2=session.get(News.class,3);
+//		System.out.println(news2);
+//		Blob image2 = news2.getImage();
+//		InputStream stream2 = image2.getBinaryStream();
+//		System.out.println(stream2.available());
 
 
 		session.doWork(new Work() {

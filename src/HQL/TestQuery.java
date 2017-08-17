@@ -41,6 +41,7 @@ public class TestQuery {
         query.setParameter(0, 3).setParameter(1, "BaoHan");
 
         List<Person> list = query.list();
+        query.uniqueResult();
         for (Person p : list)
             System.out.println(p);
     }
@@ -80,8 +81,7 @@ public class TestQuery {
 
     @Test
     public void page() {
-        String hql = "FROM inherent.Person";
-        Query query = session.createQuery(hql);
+        Query query = session.createQuery("FROM inherent.Person");
 
         int pageNum = 3;//which page
         int pageSize = 2;

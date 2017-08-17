@@ -34,8 +34,7 @@ public class SQL {
 
     @Test
     public void test() {
-        String sql = "SELECT * FROM department";
-        Query query = session.createNativeQuery(sql);
+        Query query = session.createNativeQuery("SELECT * FROM department");
         List<Object[]> list = query.list();
         for(Object o: list.get(0))//every column
             System.out.println(o);

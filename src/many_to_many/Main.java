@@ -32,6 +32,7 @@ public class Main {
         sessionFactory.close();
     }
 
+
     @Test
     public void insert() {
         Movie movie = new Movie();
