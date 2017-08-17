@@ -1,63 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
-	<!-- Database Connection -->
-		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
-		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql:///test-schema</property>
-		
-		<property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
-		
-		
-		<!-- Print SQL when executing -->
-		<property name="show_sql">true</property>
-		<!-- Format SQL -->
-		<property name="format_sql">true</property>
-		
-		<property name="hbm2ddl.auto">update</property>
+    <session-factory>
+        <!-- Database Connection -->
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql:///test-schema</property>
 
-		<property name="connection.isolation">2</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
-		<property name="use_identifier_rollback">true</property>
 
-		<!--c3p0-->
-		<property name="c3p0.max_size">10</property>
-		<property name="c3p0.min_size">5</property>
-		<property name="c3p0.acquire_increment">1</property>
-		<property name="c3p0.timeout">2000</property>
-		<property name="c3p0.idle_test_period">2000</property>
-		<property name="c3p0.max_statements">10</property>
+        <!-- Print SQL when executing -->
+        <property name="show_sql">true</property>
+        <!-- Format SQL -->
+        <property name="format_sql">true</property>
 
-		<property name="hibernate.jdbc.fetch_size">100</property>
-		<property name="hibernate.jdbc.batch_size">30</property>
+        <property name="hbm2ddl.auto">update</property>
 
-		<mapping resource="hello_world/News.hbm.xml"/>
-		<mapping resource="session/News.hbm.xml"/>
+        <property name="connection.isolation">2</property>
 
-		<mapping resource="many_to_one/MyOrder.hbm.xml"/>
-		<mapping resource="many_to_one/Customer.hbm.xml"/>
+        <property name="use_identifier_rollback">true</property>
 
-		<mapping resource="one_to_many/Customer.hbm.xml"/>
-		<mapping resource="one_to_many/MyOrder.hbm.xml"/>
+        <!--c3p0-->
+        <property name="c3p0.max_size">10</property>
+        <property name="c3p0.min_size">5</property>
+        <property name="c3p0.acquire_increment">1</property>
+        <property name="c3p0.timeout">2000</property>
+        <property name="c3p0.idle_test_period">2000</property>
+        <property name="c3p0.max_statements">10</property>
 
-		<mapping resource="one_to_one/Department.hbm.xml"/>
-		<mapping resource="one_to_one/Manager.hbm.xml"/>
+        <property name="hibernate.jdbc.fetch_size">100</property>
+        <property name="hibernate.jdbc.batch_size">30</property>
 
-		<mapping resource="one_to_one/Department2.hbm.xml"/>
-		<mapping resource="one_to_one/Manager2.hbm.xml"/>
 
-		<mapping resource="many_to_many/Movie.hbm.xml"/>
-		<mapping resource="many_to_many/Actor.hbm.xml"/>
-		<mapping resource="many_to_many/Movie2.hbm.xml"/>
-		<mapping resource="many_to_many/Actor2.hbm.xml"/>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
 
-		<mapping resource="inherent/Person.hbm.xml"/>
-		<mapping resource="inherent_2tables_joined/Person.hbm.xml"/>
-		<mapping resource="inherent_2tables_union/Person.hbm.xml"/>
-	</session-factory>
-	
+
+        <property name="cache.use_query_cache">true</property>
+
+        <mapping resource="hello_world/News.hbm.xml"/>
+        <mapping resource="session/News.hbm.xml"/>
+
+        <mapping resource="many_to_one/MyOrder.hbm.xml"/>
+        <mapping resource="many_to_one/Customer.hbm.xml"/>
+
+        <mapping resource="one_to_many/Customer.hbm.xml"/>
+        <mapping resource="one_to_many/MyOrder.hbm.xml"/>
+
+        <mapping resource="one_to_one/Department.hbm.xml"/>
+        <mapping resource="one_to_one/Manager.hbm.xml"/>
+
+        <mapping resource="one_to_one/Department2.hbm.xml"/>
+        <mapping resource="one_to_one/Manager2.hbm.xml"/>
+
+        <mapping resource="many_to_many/Movie.hbm.xml"/>
+        <mapping resource="many_to_many/Actor.hbm.xml"/>
+        <mapping resource="many_to_many/Movie2.hbm.xml"/>
+        <mapping resource="many_to_many/Actor2.hbm.xml"/>
+
+        <mapping resource="inherent/Person.hbm.xml"/>
+        <mapping resource="inherent_2tables_joined/Person.hbm.xml"/>
+        <mapping resource="inherent_2tables_union/Person.hbm.xml"/>
+
+        <class-cache class="many_to_many.Movie" usage="read-write"/>
+        <class-cache class="many_to_many.Actor" usage="read-write"/>
+        <collection-cache collection="many_to_many.Movie.actors" usage="read-write"/>
+    </session-factory>
+
 </hibernate-configuration>

@@ -36,7 +36,7 @@ public class TestQuery {
 
     @Test
     public void basic() {
-        String hql = "FROM inherent.Person where id=? and name=?";
+        String hql = "FROM inherent.Person p where id=? and name=?";
         Query query = session.createQuery(hql);
         query.setParameter(0, 3).setParameter(1, "BaoHan");
 
@@ -49,6 +49,7 @@ public class TestQuery {
     public void NamedParameter() {
         String hql = "FROM inherent.Person where id=:id and name=:name";
         Query query = session.createQuery(hql);
+
         query.setParameter("id", 3).setParameter("name", "BaoHan");
 
         List<Person> list = query.list();

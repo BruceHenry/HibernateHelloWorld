@@ -4,6 +4,8 @@
 <!-- Generated Jul 20, 2017 7:30:58 AM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping package="many_to_many">
     <class name="Movie" table="MOVIE">
+    <cache usage="read-write"></cache>
+
         <id name="id" type="java.lang.Integer">
             <column name="ID"/>
             <generator class="native"/>
