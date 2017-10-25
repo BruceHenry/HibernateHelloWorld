@@ -11,8 +11,7 @@ public class HelloWorldMain {
 	public static void main(String[] args) {
 		// 1. SessionFactory Object
 		Configuration configuration = new Configuration().configure();
-		SessionFactory sessionFactory = configuration.buildSessionFactory();		
-
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
 		// 2. Session Object
 		Session session = sessionFactory.openSession();
 		// 3.Turn on transaction
